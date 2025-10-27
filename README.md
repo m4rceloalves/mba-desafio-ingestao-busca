@@ -1,6 +1,8 @@
-# 🏗️ Guia de Uso - Sistema RAG com LangChain e pgVector
+# Guia de Uso - Ingestão e Busca Semântica com LangChain e Postgres
 
 Sistema de ingestão de PDFs e busca semântica usando LangChain, PostgreSQL com pgVector, OpenAI e Google Gemini.
+Desafio Técnico 1 - MBA em Engenharia de Software com IA (FullCycle)
+Author: Marcelo Barbosa Alves
 
 ## 📋 Pré-requisitos
 
@@ -154,7 +156,7 @@ Para sair, digite: `sair`, `exit`, `quit` ou pressione `Ctrl+C`
 1. **Use PDFs com texto selecionável** (não imagens escaneadas)
 2. **PDFs menores** têm processamento mais rápido
 3. **Faça perguntas específicas** para melhores resultados
-4. **Cada nova ingestão substitui a anterior** - se precisar manter múltiplos PDFs, seria necessário modificar o código
+4. **Cada nova ingestão substitui a anterior**
 
 ## 🔄 Reiniciar o Banco de Dados
 
@@ -167,6 +169,3 @@ docker-compose up -d
 
 **Atenção:** Isso apagará todos os dados. Você precisará fazer a ingestão novamente.
 
----
-
-**Desenvolvido com LangChain** 🦜🔗
