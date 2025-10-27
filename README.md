@@ -8,9 +8,9 @@
 
 1. **Python 3.8+** instalado
 2. **Docker e Docker Compose** instalados
-3. **Chaves de API** configuradas no arquivo `.env`:
-   - `OPENAI_API_KEY` - Para OpenAI
-   - `GOOGLE_API_KEY` - Para Google Gemini
+3. **Chaves de API** configuradas no arquivo `.env` (Pode escolher uma das duas):
+   - `OPENAI_API_KEY` - Para OpenAI (https://platform.openai.com/account/api-keys)
+   - `GOOGLE_API_KEY` - Para Google Gemini (https://aistudio.google.com/app/apikey)
 
 ## 🚀 Passos para Execução
 
