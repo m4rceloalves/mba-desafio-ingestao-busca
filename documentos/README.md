@@ -7,7 +7,7 @@ Coloque seus arquivos PDF nesta pasta para facilitar o uso do sistema de ingest√
 1. Adicione seu PDF aqui (exemplo: `relatorio.pdf`)
 2. Execute a ingest√£o:
    ```bash
-   python ingestao.py documentos/relatorio.pdf
+   python ingest.py documentos/relatorio.pdf
    ```
 
 ## Exemplo de PDFs para teste

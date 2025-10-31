@@ -2,7 +2,7 @@
 Script de Chat Interativo para Sistema RAG
 
 Este script fornece a interface CLI interativa para fazer perguntas
-ao sistema RAG, delegando a lógica de busca semântica para busca.py.
+ao sistema RAG, delegando a lógica de busca semântica para search.py.
 
 Uso:
     python chat.py
@@ -12,7 +12,7 @@ import sys
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
-from busca import inicializar_sistema_rag, processar_pergunta
+from search import inicializar_sistema_rag, processar_pergunta
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -73,7 +73,7 @@ def loop_interativo(chain):
                 print("="*60 + "\n")
                 break
 
-            # Delegar processamento para busca.py
+            # Delegar processamento para search.py
             print(f"\n💭 PERGUNTA: {pergunta}")
             print("-"*60)
 
@@ -101,7 +101,7 @@ def main():
         # Escolher modelo
         llm = escolher_modelo()
 
-        # Inicializar sistema RAG (delegar para busca.py)
+        # Inicializar sistema RAG (delegar para search.py)
         print("\n🔄 Inicializando sistema RAG...")
         chain = inicializar_sistema_rag(llm)
         print("✅ Sistema RAG configurado!")
@@ -113,7 +113,7 @@ def main():
         print(f"\n❌ Erro ao inicializar o sistema: {str(e)}")
         print("ℹ️  Certifique-se de que:")
         print("   1. O Docker Compose está rodando (docker-compose up -d)")
-        print("   2. Você executou a ingestão de um PDF (python ingestao.py <pdf>)")
+        print("   2. Você executou a ingestão de um PDF (python ingest.py <pdf>)")
         print("   3. As chaves de API estão configuradas no arquivo .env")
         sys.exit(1)
 

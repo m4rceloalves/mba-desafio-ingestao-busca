@@ -39,27 +39,39 @@ def inicializar_vector_store():
 def criar_chain_rag(vector_store, llm):
     """Cria a chain de RAG para responder perguntas."""
 
-    # Criar retriever
+    # Criar retriever - busca os 10 resultados mais relevantes
     retriever = vector_store.as_retriever(
         search_type="similarity",
-        search_kwargs={"k": 4}
+        search_kwargs={"k": 10}
     )
 
     # Template do prompt
-    template = """Você é um assistente que responde perguntas baseado EXCLUSIVAMENTE no contexto fornecido abaixo.
-
-REGRAS IMPORTANTES:
-1. Responda APENAS com informações presentes no contexto
-2. Se a informação NÃO estiver no contexto, responda EXATAMENTE: "Não tenho informações necessárias para responder sua pergunta."
-3. Seja direto e objetivo
-4. Não invente, não deduza, não especule
-
+    template = """
 CONTEXTO:
 {context}
 
-PERGUNTA: {question}
+REGRAS:
+- Responda somente com base no CONTEXTO.
+- Se a informação não estiver explicitamente no CONTEXTO, responda:
+  "Não tenho informações necessárias para responder sua pergunta."
+- Nunca invente ou use conhecimento externo.
+- Nunca produza opiniões ou interpretações além do que está escrito.
 
-RESPOSTA:"""
+EXEMPLOS DE PERGUNTAS FORA DO CONTEXTO:
+Pergunta: "Qual é a capital da França?"
+Resposta: "Não tenho informações necessárias para responder sua pergunta."
+
+Pergunta: "Quantos clientes temos em 2024?"
+Resposta: "Não tenho informações necessárias para responder sua pergunta."
+
+Pergunta: "Você acha isso bom ou ruim?"
+Resposta: "Não tenho informações necessárias para responder sua pergunta."
+
+PERGUNTA DO USUÁRIO:
+{question}
+
+RESPONDA A "PERGUNTA DO USUÁRIO"
+"""
 
     prompt = ChatPromptTemplate.from_template(template)
 

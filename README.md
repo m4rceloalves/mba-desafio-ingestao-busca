@@ -41,13 +41,13 @@ pip install -r requirements.txt
 Execute o script de ingestão passando o caminho do PDF:
 
 ```bash
-python src/ingestao.py <caminho_do_pdf>
+python src/ingest.py <caminho_do_pdf>
 ```
 
 **Exemplo:**
 
 ```bash
-python src/ingestao.py documentos/relatorio.pdf
+python src/ingest.py documentos/relatorio.pdf
 ```
 
 **O que acontece:**

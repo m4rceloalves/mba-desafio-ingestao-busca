@@ -5,10 +5,10 @@ Este script processa um arquivo PDF, cria embeddings e armazena
 os vetores em um banco de dados PostgreSQL com extensão pgVector.
 
 Uso:
-    python ingestao.py <caminho_para_pdf>
+    python ingest.py <caminho_para_pdf>
 
 Exemplo:
-    python ingestao.py documentos/relatorio.pdf
+    python ingest.py documentos/relatorio.pdf
 """
 
 import sys
@@ -55,7 +55,7 @@ def dividir_documentos(documentos):
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
-        chunk_overlap=150
+        chunk_overlap=150,
         length_function=len,
         separators=["\n\n", "\n", " ", ""]
     )
@@ -112,8 +112,8 @@ def main():
     # Verificar argumentos
     if len(sys.argv) != 2:
         print("❌ Uso incorreto!")
-        print("📖 Uso correto: python ingestao.py <caminho_para_pdf>")
-        print("📖 Exemplo: python ingestao.py documentos/relatorio.pdf")
+        print("📖 Uso correto: python ingest.py <caminho_para_pdf>")
+        print("📖 Exemplo: python ingest.py documentos/relatorio.pdf")
         sys.exit(1)
 
     caminho_pdf = sys.argv[1]
